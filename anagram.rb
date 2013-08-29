@@ -1,40 +1,36 @@
-# use ARGV
-#get input
-input = %w(stars rats silent mary army tars banana listen tensil)
-# create container
-anagrams = []
-
-# for each word in input, check for anagrams
-
-def sort_word(word)
-	word.split(//).sort.join("")
-end
-
-input.each do |word| 
-	matches=[]
-	checker = sort_word(word)
-	
-	input.each do |comparing_word| 
-		checkee = sort_word(comparing_word)
-		if checker == checkee
-			matches << comparing_word
-		end
+class Anagram
+	attr_accessor :anagrams
+	def initialize(words)
+		true
 	end
-	anagrams.push(matches)
+
+	def sort_word(word)
+		word.chars.sort.join
+	end
+
+	def compare_sorted_words(base, table_word)
+		base == table_word ? true : false
+	end
+
+	def find_matching_anagrams(base, words)
+		matches = []
+		sorted_base = sort_word(base)
+		words.each do |word|
+			if sorted_base == sort_word(word)
+				matches.push(word)
+			end
+		end
+		matches
+	end
+
+	def return_matches(words)
+		anagrams =[]
+		words.each do |word|
+		matches = find_matching_anagrams(word, words)
+	 	anagrams << matches
+		end 
+		anagrams.uniq
+	end
+
 end
 
-# remove duplicates
-
-single_anagrams = anagrams.uniq
-
-puts single_anagrams.inspect
-
-
-
-
-
-
-# end
-
-
-# anagrams = ARGV.check_anagram {}
