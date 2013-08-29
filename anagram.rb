@@ -15,26 +15,17 @@ class Anagram
 	end
 
 	def find_matching_anagrams(base)
-		matches = []
 		sorted_base = sort_word(base)
-		@words.each do |word|
-			matches << word	if sorted_base == sort_word(word)
-		end
-		matches
+		@words.select { |word| sorted_base == sort_word(word) }
 	end
 
 	def return_matches
-
-		@words.each do |word|
-			matches = find_matching_anagrams(word)
-		 	@anagrams << matches
-		end 
-		 @anagrams
+		@words.map { |word| find_matching_anagrams(word)}
 	end
 
 end
 
 words = %w(mary army listen silent banana)
 anagrams = Anagram.new(words)
-print anagrams.return_matches
+p anagrams.return_matches.uniq
 
