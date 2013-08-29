@@ -20,12 +20,13 @@ class Anagram
 	end
 
 	def return_matches
-		@words.map { |word| find_matching_anagrams(word)}
+		@anagrams = @words.map { |word| find_matching_anagrams(word)}
+		@anagrams.uniq
 	end
 
 end
 
 words = %w(mary army listen silent banana)
 anagrams = Anagram.new(words)
-p anagrams.return_matches.uniq
+p anagrams.return_matches
 
