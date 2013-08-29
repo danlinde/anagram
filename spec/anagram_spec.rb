@@ -1,6 +1,6 @@
 require_relative '../anagram'
 describe Anagram do
-let(:anagrams) {Anagram.new(%w(rats mary army star tars silent listen banana tensil))}
+let(:anagrams) {Anagram.new(%w(rats mary army star listen))}
 
   it 'should take an array as input' do
     words = %w(rats mary tars star banana silent listen tensil)
@@ -20,11 +20,11 @@ let(:anagrams) {Anagram.new(%w(rats mary army star tars silent listen banana ten
   end
 
   it 'should find matching anagrams from a table of words' do
-    anagrams.find_matching_anagrams('mary', ['mary','army','listen']).should eq ["mary","army"]
+    anagrams.find_matching_anagrams('mary').should eq ["mary","army"]
   end
 
   it 'should return all matches' do
-    anagrams.return_matches(['star', 'rats',  'army', 'listen', 'mary']).should eq [['star', 'rats'], ['army', 'mary'], ['listen']]   
+    anagrams.return_matches.should eq [['star', 'rats'], ['army', 'mary'], ['listen']]   
   end
 
 end
