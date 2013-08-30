@@ -10,10 +10,6 @@ class Anagram
 		word.chars.sort.join
 	end
 
-	def compare_sorted_words(base, table_word)
-		base == table_word ? true : false
-	end
-
 	def find_matching_anagrams(base)
 		sorted_base = sort_word(base)
 		@words.select { |word| sorted_base == sort_word(word) }
