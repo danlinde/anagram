@@ -7,5 +7,7 @@ Given a list of strings, return a list of list of strings of anagrams, i.e. each
 
 For example,
 
-input   [stars, mary, rats, tars, army, banana]
+````
+input:   [stars, mary, rats, tars, army, banana]
 output: [ [rats, tars], [army, mary], [stars], [banana] ].
+````
